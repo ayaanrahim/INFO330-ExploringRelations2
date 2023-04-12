@@ -1,1 +1,1 @@
--- Which sales agent made the most in sales in 2010?
+select employees.FirstName || " " || employees.LastName, sum(invoices.Total) from employees inner join customers on employees.EmployeeId=customers.SupportRepId inner join invoices on customers.CustomerId=invoices.CustomerId where substr(invoices.InvoiceDate, 1, 4) = "2010" group by employees.FirstName || " " || employees.LastName order by sum(invoices.Total) desc;

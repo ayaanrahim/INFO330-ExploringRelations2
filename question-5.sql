@@ -1,1 +1,1 @@
--- What was the most purchased track of 2013?
+select tracks.Name, sum(invoice_items.Quantity) from invoice_items inner join tracks on invoice_items.TrackId=tracks.TrackId inner join invoices on invoice_items.InvoiceId=invoices.InvoiceId where substr(invoices.InvoiceDate, 1, 4) = '2013' group by tracks.TrackId order by sum(invoice_items.Quantity) desc;

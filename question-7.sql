@@ -1,1 +1,1 @@
--- Find tracks (id, name, and composer) that have never been purchased (that is, they aren't part of a line item in an invoice).
+select tracks.TrackId, tracks.Name, tracks.Composer from tracks left join invoice_items on tracks.TrackId=invoice_items.TrackId where invoice_items.TrackId is null group by invoice_items.TrackId;

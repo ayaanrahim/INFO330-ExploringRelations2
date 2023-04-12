@@ -1,1 +1,1 @@
--- Provide a query that includes the purchased track name AND artist name with each invoice line item.
+select invoice_items.*, tracks.Name, artists.Name from invoice_items inner join tracks on invoice_items.TrackId=tracks.TrackId inner join albums on tracks.AlbumId=albums.AlbumId inner join artists on albums.ArtistId=artists.ArtistId;
